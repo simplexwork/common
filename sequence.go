@@ -20,7 +20,7 @@ type ID int64
 
 const (
 	// 节点位数
-	nodeBits uint8 = 5
+	nodeBits uint8 = 10
 	// 序列位数
 	snBits uint8 = 12
 	// 默认起始时间戳 2006-03-21 20:50:14 GMT
