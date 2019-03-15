@@ -3,7 +3,7 @@ package common
 import "testing"
 
 func TestSequence(t *testing.T) {
-	idWoker := NewIDWorker(1)
+	idWorker := NewIDWorker(1)
 
 	c := make(chan ID)
 
@@ -11,7 +11,7 @@ func TestSequence(t *testing.T) {
 
 	for i := 0; i < cnt; i++ {
 		go func() {
-			id, err := idWoker.Next()
+			id, err := idWorker.Next()
 			if err != nil {
 				t.Error(err)
 			}

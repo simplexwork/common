@@ -1,4 +1,3 @@
-// SnowFlake算法生成id的结果是一个64bit大小的整数
 package common
 
 import (
@@ -8,9 +7,12 @@ import (
 )
 
 /*
+
+SnowFlake算法生成id的结果是一个64bit大小的整数
 +--------------------------------------------------------------------------+
 | 1 Bit Unused | 41 Bit Timestamp |  10 Bit NodeID  |   12 Bit Sequence ID |
 +--------------------------------------------------------------------------+
+
 */
 
 // ID .
@@ -33,8 +35,8 @@ const (
 	snMax int64 = -1 ^ (-1 << snBits)
 )
 
-// IDWoker .
-type IDWoker struct {
+// IDWorker .
+type IDWorker struct {
 	// 并发锁
 	mutex *sync.Mutex
 	// 时间戳
@@ -46,7 +48,7 @@ type IDWoker struct {
 }
 
 // Next .
-func (w *IDWoker) Next() (ID, error) {
+func (w *IDWorker) Next() (ID, error) {
 	w.mutex.Lock()
 	defer w.mutex.Unlock()
 	if w.node < 0 || w.node > nodeMax {
@@ -80,6 +82,6 @@ func timestamp() int64 {
 }
 
 // NewIDWorker .
-func NewIDWorker(node int64) *IDWoker {
-	return &IDWoker{node: node, mutex: &sync.Mutex{}}
+func NewIDWorker(node int64) *IDWorker {
+	return &IDWorker{node: node, mutex: &sync.Mutex{}}
 }
