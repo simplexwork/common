@@ -9,7 +9,7 @@ type Student struct {
 func TestJSON(t *testing.T) {
 	str := "{\"name\":\"我\"}"
 	var student Student
-	err := FromJSON(str, &student)
+	err := FromJSON([]byte(str), &student)
 	if err != nil {
 		t.Error(err)
 	}
