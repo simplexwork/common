@@ -1,6 +1,7 @@
 package common
 
 import (
+	"regexp"
 	"strconv"
 	"strings"
 )
@@ -48,4 +49,16 @@ func ToUpper(s string) string {
 // Trim 去首位空格
 func Trim(s string) string {
 	return strings.TrimSpace(s)
+}
+
+// IsEmail 判断邮箱
+func IsEmail(s string) bool {
+	reg := regexp.MustCompile("^[A-Za-z0-9\u4e00-\u9fa5]+@[a-zA-Z0-9_-]+(\\.[a-zA-Z0-9_-]+)+$")
+	return reg.MatchString(s)
+}
+
+// IsMobile 判断中国手机号
+func IsMobile(s string) bool {
+	reg := regexp.MustCompile("^1\\d{2}\\d{8}$")
+	return reg.MatchString(s)
 }
