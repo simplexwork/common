@@ -62,3 +62,10 @@ func IsMobile(s string) bool {
 	reg := regexp.MustCompile("^1\\d{2}\\d{8}$")
 	return reg.MatchString(s)
 }
+
+// IsSimplePassword 判断密码是否6位到20位字母数字下划线
+func IsSimplePassword(s string) bool {
+	reg := regexp.MustCompile("^\\w{6,20}$")
+	return reg.MatchString(s)
+
+}
