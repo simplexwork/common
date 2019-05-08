@@ -53,7 +53,7 @@ func Trim(s string) string {
 
 // IsEmail 判断邮箱
 func IsEmail(s string) bool {
-	reg := regexp.MustCompile("^[A-Za-z0-9\u4e00-\u9fa5]+@[a-zA-Z0-9_-]+(\\.[a-zA-Z0-9_-]+)+$")
+	reg := regexp.MustCompile("^[A-Za-z0-9_-\u4e00-\u9fa5]+@[a-zA-Z0-9_-]+(\\.[a-zA-Z0-9_-]+)+$")
 	return reg.MatchString(s)
 }
 
