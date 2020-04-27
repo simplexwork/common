@@ -8,6 +8,12 @@ import (
 // DateTime .
 type DateTime time.Time
 
+// IsZero .
+func (t DateTime) IsZero() bool {
+	t1 := time.Time(t)
+	return t1.IsZero()
+}
+
 // MarshalJSON .
 func (t DateTime) MarshalJSON() ([]byte, error) {
 	t1 := time.Time(t)
