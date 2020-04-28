@@ -22,3 +22,8 @@ func (id ID) MarshalText() ([]byte, error) {
 func Int64ToID(i int64) ID {
 	return ID(i)
 }
+
+// StrToID .
+func StrToID(s string) ID {
+	return Int64ToID(StrToInt64(s, 0))
+}
