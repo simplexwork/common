@@ -51,6 +51,11 @@ func Trim(s string) string {
 	return strings.TrimSpace(s)
 }
 
+// IsEmpty 字符串是否为空
+func IsEmpty(s string) bool {
+	return Trim(s) == ""
+}
+
 // IsEmail 判断邮箱
 func IsEmail(s string) bool {
 	reg := regexp.MustCompile("^[A-Za-z0-9_-\u4e00-\u9fa5]+@[a-zA-Z0-9_-]+(\\.[a-zA-Z0-9_-]+)+$")
