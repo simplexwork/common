@@ -74,3 +74,13 @@ func IsSimplePassword(s string) bool {
 	return reg.MatchString(s)
 
 }
+
+// HideMobile 隐藏手机中间4位号码
+func HideMobile(mobile string) string {
+	ret := ""
+	if IsMobile(mobile) {
+		rs := []rune(mobile)
+		ret = string(rs[0:3]) + "****" + string(rs[7:11])
+	}
+	return ret
+}
